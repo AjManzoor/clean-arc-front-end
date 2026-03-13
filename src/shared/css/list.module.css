@@ -1,0 +1,305 @@
+.nb_table {
+  width: 100% !important;
+  border: none !important;
+  color: #052640 !important;
+  clear: both !important;
+  font-weight: 500 !important;
+}
+
+.nb_table tr td,
+.nb_table tr th {
+  padding: 14px 16px;
+  color: #052640;
+  font-size: 13.75px;
+}
+
+.nb_table td {
+  white-space: break-spaces;
+  overflow-wrap: anywhere;
+}
+
+.nb_table th:nth-child(1) {
+  border-top-left-radius: 10px;
+}
+
+.nb_table th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.nb_table tr th {
+  padding: 18px 16px;
+  font-size: 14px;
+}
+
+/* Responsive table adjustments */
+
+@media screen and (min-width: 100px) and (max-width: 1116px) {
+  .nb_table tr td,
+  .nb_table tr th {
+    max-width: 1rem !important;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 900px) {
+  .nb_table tr td,
+  .nb_table tr th {
+    font-size: 12px;
+  }
+}
+
+/* Row striping */
+
+.nb_table tr:nth-child(even) td {
+  background-color: #fafafa;
+}
+
+.nb_table tr:nth-child(odd) {
+  background-color: white !important;
+}
+
+.nb_table tr:nth-child(1) th {
+  background-color: #f2f2f2 !important;
+  font-weight: 500 !important;
+}
+
+.nb_table .sh_ref,
+.nb_table .lm_ref {
+  overflow-wrap: break-word;
+  white-space: nowrap;
+}
+
+.lm_ref a {
+  margin-right: 0px !important;
+}
+
+/* Action bar */
+
+.action_bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.action_bar .action_bar_button {
+  margin-top: 5px;
+  max-height: 42.2px;
+}
+
+/* Filters */
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 16px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.filter p {
+  font-weight: 600;
+  color: #0f3f64;
+  margin-top: 2px;
+}
+
+.filter_label {
+  margin-top: -8px !important;
+}
+
+/* Switch filter */
+
+.switchfilter {
+  width: 5rem;
+}
+
+.switchfilter_switch {
+  margin-top: 8px;
+}
+
+.switchfilter .switchfilter_label {
+  margin-top: 6px !important;
+  margin-left: -25px;
+  max-width: initial;
+}
+
+/* Single filter */
+
+.filter_single {
+  width: 10rem;
+}
+
+/* Multi filter */
+
+.filter_multi_holder .filter_multi {
+  padding-right: 12px !important;
+}
+
+.filter_multi_holder .filter_multi_label {
+  margin-top: 6px !important;
+  background: white;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 8px;
+}
+
+.filter_multi_holder svg {
+  color: #0f3f64;
+}
+
+.multi_dropdown > span {
+  padding: 3px;
+}
+
+.multi_dropdown > div {
+  margin-left: 7.5px;
+  margin-top: 0.5px;
+}
+
+/* Search bar */
+
+.search_bar {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search_bar input {
+  border-radius: 16px;
+  border: 1px solid #878787;
+  padding: 12px 14px;
+  padding-bottom: 6px;
+  color: #0f3f64;
+  width: 350px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.search_bar input::placeholder {
+  color: #0f3f64 !important;
+}
+
+.search_bar input:focus {
+  outline: none !important;
+}
+
+.search_bar label {
+  top: 7px;
+  color: #0f3f64;
+}
+
+.search_bar label[data-shrink="true"] {
+  z-index: 20;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 5px;
+  color: #0f3f64;
+}
+
+.search_bar fieldset {
+  border: 0px !important;
+  outline: none;
+}
+
+/* Filter action bar */
+
+.filter_action_bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-items: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Row striping helpers */
+
+.row_stripe_odd {
+  background-color: #ffffff;
+}
+
+.row_stripe_even {
+  background-color: #f2f2f2;
+}
+
+/* Pagination */
+
+.table_holder .pagination,
+.table_holder .pagination_notes,
+.table_holder .pagination_history {
+  overflow: hidden;
+}
+
+.pagination p {
+  margin-top: 19px;
+  font-size: 14px;
+  color: #0f3f64;
+  font-weight: 600;
+}
+
+.pagination_notes p,
+.pagination_history p {
+  margin-top: 0px;
+  font-size: 14px;
+  color: #0f3f64;
+  font-weight: 600;
+}
+
+.pagination button {
+  color: #0f3f64;
+  margin-top: 19px;
+}
+
+.pagination_notes button,
+.pagination_history button {
+  color: #0f3f64;
+  margin-top: 0px;
+}
+
+.pagination button:hover,
+.pagination_notes button:hover,
+.pagination_history button:hover {
+  background-color: #eaf9fc;
+}
+
+.pagination_actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Sorting */
+
+.nb_table th[aria-sort] * {
+  color: #0f3f64;
+  font-weight: 600;
+}
+
+.nb_table th[aria-sort] svg {
+  opacity: 1 !important;
+}
+
+.nb_table th:hover * {
+  color: #0f3f64;
+  opacity: 1;
+}
+
+.nb_table th span:hover svg {
+  opacity: 1 !important;
+}
+
+/* Hover effects */
+
+.nb_table tr:hover td {
+  background-color: #eaf9fc;
+}
+
+.nb_table a:hover {
+  transform: scale(1.02);
+}

@@ -1,0 +1,52 @@
+.loader {
+  text-align: center;
+  width: 100%;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #0f3f64;
+  vertical-align: middle;
+}
+
+.loader_icon,
+.loader_message {
+  vertical-align: middle;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: inline-block;
+}
+
+/* Icons */
+
+.loader_icon svg {
+  color: #0f3f64;
+}
+
+.loader_icon_ac svg {
+  color: #0f3f64;
+}
+
+.loader_icon_ac {
+  position: relative !important;
+  right: 58px;
+  background-color: white;
+}
+
+/* Action area (Retry button etc.) */
+
+.loader .loader_action {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Success / Error states */
+
+.loader_success,
+.loader_success svg {
+  color: rgb(34 197 94);
+}
+
+.loader_error,
+.loader_error svg {
+  color: rgb(239 68 68);
+}

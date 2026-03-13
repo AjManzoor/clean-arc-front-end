@@ -1,0 +1,1 @@
+export const MIN_SEARCHBOX_QUERY_LENGTH = 3;

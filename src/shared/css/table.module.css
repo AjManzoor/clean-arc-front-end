@@ -1,0 +1,116 @@
+.home_container {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.search_container {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 0px !important;
+  margin-bottom: 25px !important;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.home_image {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 50px);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.portrait_container {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 70px !important;
+  margin-bottom: 25px !important;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.section_message {
+  padding: 10px;
+  width: 100%;
+  background: linear-gradient(90deg, #29c9e5 5%, #2bd494 100%);
+  color: white !important;
+  border-radius: 8px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.welcome_message {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  color: #0f3f64;
+  font-size: 22px;
+  top: 137px;
+  margin-bottom: 5px;
+  position: absolute;
+  width: 60%;
+  left: 20%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.welcome_message p {
+  margin-bottom: 25px;
+}
+
+.welcome_message small {
+  color: #0f3f64;
+}
+
+.home_container .welcome_message button {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.welcome_message p > svg {
+  margin-top: -2px;
+  font-size: 38px;
+  margin-right: 10px;
+}
+
+.home_title {
+  color: #0f3f64;
+  font-weight: 600;
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.device_rotate svg {
+  font-size: 74px;
+  color: #0f3f64;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: inline-block;
+  animation: rotation 4s infinite linear;
+  transform: rotate(-133deg);
+}
+
+@keyframes rotation {
+  50% {
+    transform: rotate(-227deg);
+  }
+}
+
+.portrait_logo {
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
