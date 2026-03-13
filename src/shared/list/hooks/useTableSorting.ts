@@ -5,13 +5,10 @@ import type {
   ITableSortingProvider,
 } from "../../../lib/list/sortingTypes";
 
-export default function useTableSorting(
-  availableSortProperties: ISortPropertyInfo[],
-  defaultDirectionToSortBy: SortDirection
-): ITableSortingProvider {
-  const defaultProperty =
-    availableSortProperties.sort((first, second) => first.rank - second.rank)[0] ??
-    null;
+export default function useTableSorting( availableSortProperties: ISortPropertyInfo[], defaultDirectionToSortBy: SortDirection)
+: ITableSortingProvider 
+{
+  const defaultProperty = availableSortProperties.sort((first, second) => first.rank - second.rank)[0] ?? null;
 
   const [sortPropertyName, setSortPropertyName] = useState<string>(
     defaultProperty?.propertyName ?? null
@@ -27,14 +24,8 @@ export default function useTableSorting(
       : { direction: undefined, active: false };
   };
 
-  const setSort = (
-    propertyNameToSortBy: string,
-    directionToSortBy: SortDirection
-  ) => {
-    const isValidProperty =
-      availableSortProperties.findIndex(
-        (sp) => sp.propertyName == propertyNameToSortBy
-      ) >= 0;
+  const setSort = (propertyNameToSortBy: string, directionToSortBy: SortDirection ) => {
+    const isValidProperty = availableSortProperties.findIndex((sp) => sp.propertyName == propertyNameToSortBy) >= 0;
 
     if (!isValidProperty) return;
 
@@ -46,9 +37,11 @@ export default function useTableSorting(
   // If column name does not match then the new sort column is set with the default sort direction
   const toggleSort = (propertyName: string) => {
     if (propertyName == sortPropertyName) {
+      console.log(1)
       // Toggling current property
       setSortDirection(sortDirection == "asc" ? "desc" : "asc");
     } else {
+
       setSort(propertyName, defaultDirectionToSortBy);
     }
   };
