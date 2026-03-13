@@ -8,6 +8,7 @@ import DivSpacer from "../../../shared/generic/components/DivSpacer";
 import AsyncStatus from "../../../shared/generic/components/AsyncStatus";
 import TableCellWithSorting from "../../../shared/list/components/cells/TableCellWithSorting";
 import type { BookItemResponse } from "../dtos/BookItemResponse";
+import TablePagingControl from "../../../shared/list/components/paging/TablePagingControl";
 
 const BooksTable = () => {
     const booksTable = useBooksTable();
@@ -44,6 +45,8 @@ const BooksTable = () => {
         </Table>
         
         </Grid>
+
+        <TablePagingControl table = {booksTable.table}/> 
 
     </AsyncStatus>
 
