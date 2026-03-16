@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useTableWithPaginationAndSorting } from "../../../shared/list/hooks/useTableWithPaginationAndSorting";
-import type { BookItemResponse } from "../dtos/BookItemResponse";
-import { useEffectAfterMount } from "../../../lib/hooks/useEffectAfterMount";
-import { searchLogic } from "../../../lib/utils/searchUtils";
-import { apiGetEndpoint } from "../../../lib/api/apiHelper";
-import type { ISortPropertyInfo } from "../../../lib/list/sortingTypes";
+import { useTableWithPaginationAndSorting } from "../../../../shared/list/hooks/useTableWithPaginationAndSorting";
+import type { BookItemResponse } from "../../interfaces/BookItemResponse";
+import { useEffectAfterMount } from "../../../../lib/hooks/useEffectAfterMount";
+import { searchLogic } from "../../../../lib/utils/searchUtils";
+import { apiGetEndpoint } from "../../../../lib/api/apiHelper";
+import type { ISortPropertyInfo } from "../../../../lib/list/sortingTypes";
 
 const useBooksTable = () => {
     const propertiesToSortBy : ISortPropertyInfo[] = [{propertyName : "BookName", displayName : "BookName", rank : 0}]

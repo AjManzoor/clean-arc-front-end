@@ -1,7 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css'
-import BooksPage from './features/books/components/BooksPage';
+import BooksPage from './features/books/components/list/BooksPage';
 
 
 const App = () => {

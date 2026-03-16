@@ -1,19 +1,17 @@
-import useBooksTable from "../hooks/useBooksTable";
+import useBooksTable from "../../hooks/list/useBooksTable";
 import styles from "../../../shared/css/table.module.css";
 import listStyles from "../../../shared/css/list.module.css"
 
 import { Grid, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import SearchAsYouTypeBox from "../../../shared/list/components/filters/SearchAsYouTypeBox";
-import DivSpacer from "../../../shared/generic/components/DivSpacer";
-import AsyncStatus from "../../../shared/generic/components/AsyncStatus";
-import TableCellWithSorting from "../../../shared/list/components/cells/TableCellWithSorting";
-import type { BookItemResponse } from "../dtos/BookItemResponse";
-import TablePagingControl from "../../../shared/list/components/paging/TablePagingControl";
+import SearchAsYouTypeBox from "../../../../shared/list/components/filters/SearchAsYouTypeBox";
+import DivSpacer from "../../../../shared/generic/components/DivSpacer";
+import AsyncStatus from "../../../../shared/generic/components/AsyncStatus";
+import TableCellWithSorting from "../../../../shared/list/components/cells/TableCellWithSorting";
+import type { BookItemResponse } from "../../interfaces/BookItemResponse";
+import TablePagingControl from "../../../../shared/list/components/paging/TablePagingControl";
 
 const BooksTable = () => {
     const booksTable = useBooksTable();
-    console.log(booksTable.table)
-
     return(
         <>
 <Grid className={styles.home_container} id="home_container" container columns={12} >
@@ -30,6 +28,12 @@ const BooksTable = () => {
           <TableHead>
             <TableRow>
               <TableCellWithSorting sortingProvider={booksTable.table} propName="BookName" label="BookName"/>
+              <TableCell>Author</TableCell>
+              <TableCell>GenreId</TableCell>
+              <TableCell>Rating</TableCell>
+              <TableCell>Fiction</TableCell>
+              <TableCell>StartDate</TableCell>
+             <TableCell>FinishDate</TableCell>
             </TableRow>
           </TableHead>
 
@@ -37,6 +41,13 @@ const BooksTable = () => {
             {booksTable.table.data && booksTable.table.data.map((row : BookItemResponse, index: any)=>(
                 <TableRow key={index}>
                   <TableCell>{row.bookName}</TableCell>
+                  <TableCell>{row.author}</TableCell>
+                  <TableCell>{row.genreId}</TableCell>
+                  <TableCell>{row.rating}</TableCell>
+                  <TableCell>{row.fiction}</TableCell>
+                  <TableCell>{row.startDate}</TableCell>
+                  <TableCell>{row.finishDate}</TableCell>
+
                 </TableRow>
             ))}
 
