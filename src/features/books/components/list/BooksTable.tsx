@@ -1,6 +1,6 @@
 import useBooksTable from "../../hooks/list/useBooksTable";
-import styles from "../../../shared/css/table.module.css";
-import listStyles from "../../../shared/css/list.module.css"
+import styles from "../../../../shared/css/table.module.css";
+import listStyles from "../../../../shared/css/list.module.css"
 
 import { Grid, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import SearchAsYouTypeBox from "../../../../shared/list/components/filters/SearchAsYouTypeBox";
