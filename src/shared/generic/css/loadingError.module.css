@@ -1,0 +1,49 @@
+.loader {
+    width: 100%;
+    text-align: center;
+
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+
+    color: #0f3f64;
+    vertical-align: middle;
+}
+
+.loader_icon,
+.loader_message {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.loader_icon svg {
+    color: #0f3f64;
+}
+
+.loader_icon_ac {
+    position: relative !important;
+    right: 58px;
+    background-color: white;
+}
+
+.loader_icon_ac svg {
+    color: #0f3f64;
+}
+
+.loader .loader_action {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loader_success,
+.loader_success svg {
+    color: rgb(34 197 94);
+}
+
+.loader_error,
+.loader_error svg {
+    color: rgb(239 68 68);
+}

@@ -1,4 +1,4 @@
-export type BookItemResponse {
+export type BookItemResponse = {
     id: string;           // Guid -> string
     bookName?: string;
     author?: string;
@@ -8,4 +8,10 @@ export type BookItemResponse {
     startDate: string;    // DateOnly -> string (ISO date)
     finishDate?: string;
     rating?: number;
+}
+
+export type AuthorItemResult = {
+    id: string;           // Guid -> string
+    name : string,
+    description : string
 }

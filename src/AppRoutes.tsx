@@ -4,14 +4,11 @@ import BooksPage from "./features/books/components/list/BooksPage";
 export const AppRoutes = () =>{
 
     return(
-
         <>
         <Routes>
             <Route path ="/books" element={<><BooksPage/></>} />
+            <Route path ="/addBook" element={<><BooksPage/></>} />
         </Routes>
         </>
-        
-
-
     )
 }

@@ -1,5 +1,5 @@
 import type { IHasAsyncStatus } from "../interfaces/fetch/types";
-import type { IdWithName } from "./IdWithName";
+import type { IdWithName } from "./idWithName";
 import type { ITableSortingProvider } from "./sortingTypes";
 
 export interface ITablePaginationSnapshot {

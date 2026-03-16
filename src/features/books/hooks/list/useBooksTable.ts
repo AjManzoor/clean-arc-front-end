@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTableWithPaginationAndSorting } from "../../../../shared/list/hooks/useTableWithPaginationAndSorting";
-import type { BookItemResponse } from "../../interfaces/BookItemResponse";
+import type { BookItemResponse } from "../../interfaces/types";
 import { useEffectAfterMount } from "../../../../lib/hooks/useEffectAfterMount";
 import { searchLogic } from "../../../../lib/utils/searchUtils";
 import { apiGetEndpoint } from "../../../../lib/api/apiHelper";

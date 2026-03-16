@@ -7,7 +7,7 @@ import SearchAsYouTypeBox from "../../../../shared/list/components/filters/Searc
 import DivSpacer from "../../../../shared/generic/components/DivSpacer";
 import AsyncStatus from "../../../../shared/generic/components/AsyncStatus";
 import TableCellWithSorting from "../../../../shared/list/components/cells/TableCellWithSorting";
-import type { BookItemResponse } from "../../interfaces/BookItemResponse";
+import type { BookItemResponse } from "../../interfaces/types";
 import TablePagingControl from "../../../../shared/list/components/paging/TablePagingControl";
 
 const BooksTable = () => {
