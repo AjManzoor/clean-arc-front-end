@@ -135,6 +135,8 @@
 
 .filter_multi_holder .filter_multi {
   padding-right: 12px !important;
+    background: white;
+
 }
 
 .filter_multi_holder .filter_multi_label {

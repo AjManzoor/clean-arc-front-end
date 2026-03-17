@@ -1,0 +1,138 @@
+.field_validation_container ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.field_input_validation_failed {
+    color: #ef4444 !important;
+}
+
+.field_input_validation_failed fieldset {
+    border: 1px solid #ef4444 !important;
+}
+
+.field_input_validation_failed svg {
+    color: #ef4444 !important;
+}
+
+.field_validation_results {
+    color: #ef4444;
+    margin-bottom: 0.5rem;
+}
+
+.field_validation_result {
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+}
+
+.field_validation_result > span {
+    vertical-align: middle;
+    margin: 0 0.5rem;
+}
+
+.tab_label_validation_pass {
+    color: #10b981;
+    margin-left: 0.5rem;
+    margin-top: -5.5px;
+}
+
+.tab_label_validation_fail {
+    color: #ef4444;
+    margin-left: 0.5rem;
+    margin-top: -5.5px;
+}
+
+.tab .tab_label_validation_fail,
+.tab .tab_label_validation_pass {
+    margin-top: -9px;
+    margin-left: -5px;
+}
+
+.tab .tab_label_validation_fail_holder,
+.tab .tab_label_validation_pass_holder {
+    position: relative;
+    top: 2px;
+    background-color: white;
+    width: 13.4px;
+    height: 12.5px;
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+.validation_fail_holder {
+    border: 2px solid #ef4444;
+    border-radius: 16px;
+    padding: 0.75rem;
+}
+
+.validation_icon {
+    color: #ef4444;
+    flex-shrink: 0;
+}
+
+.validation_fail_icon {
+    float: left;
+    color: #ef4444;
+    margin: 0 0.75rem 30px 0.5rem;
+    vertical-align: top;
+}
+
+.field_validation_results svg {
+    color: #ef4444;
+}
+
+.validation_text {
+    margin-bottom: 5px;
+}
+
+/* Responsive tweaks */
+
+@media screen and (min-width: 1286px) {
+    .tab .tab_label_validation_fail_holder,
+    .tab .tab_label_validation_pass_holder {
+        width: 13.5px;
+    }
+
+    .tab .tab_label_validation_fail,
+    .tab .tab_label_validation_pass {
+        margin-left: -5.2px;
+    }
+}
+
+@media screen and (min-width: 1155px) and (max-width: 1230px) {
+    .tab .tab_label_validation_fail_holder,
+    .tab .tab_label_validation_pass_holder {
+        width: 13px;
+        height: 10px;
+    }
+}
+
+@media screen and (min-width: 1075px) and (max-width: 1154px) {
+    .tab .tab_label_validation_fail_holder,
+    .tab .tab_label_validation_pass_holder {
+        width: 10.5px;
+        height: 11px;
+    }
+
+    .tab .tab_label_validation_fail,
+    .tab .tab_label_validation_pass {
+        margin-top: -5.5px;
+        margin-left: -4.8px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1074px) {
+    .tab .tab_label_validation_fail_holder,
+    .tab .tab_label_validation_pass_holder {
+        width: 11px;
+        height: 10px;
+    }
+
+    .tab .tab_label_validation_fail,
+    .tab .tab_label_validation_pass {
+        margin-top: -5.5px;
+        margin-left: -4.8px;
+    }
+}
