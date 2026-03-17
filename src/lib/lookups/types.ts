@@ -26,3 +26,10 @@ export interface IAutoCompleteOption{
     label : string,
     rawValue? : any
 }
+
+export interface IMenuOption {
+    id: any;
+    name: string;
+    description?: string;
+    onClick?: ((data: any | undefined) => void) | ((...args: any[]) => Promise<void>) | null;
+}

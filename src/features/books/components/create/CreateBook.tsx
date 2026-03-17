@@ -1,111 +1,111 @@
-import { ListItemText, Stack, Typography } from "@mui/material";
+import { Grid, ListItemText, Stack, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import ApiMultiSelectInput from "../../../../shared/form/components/ApiMultiSelectInput";
 import { useCreateBook } from "../../hooks/create/useCreateBook";
-import { useState } from "react";
-import { LookupType, type IAutoCompleteOption, type LookupValues } from "../../../../lib/lookups/types";
-import { apiGetEndpoint } from "../../../../lib/api/apiHelper";
-import type { AuthorItemResult } from "../../interfaces/types";
 import MultiFilter from "../../../../shared/list/components/filters/Multifilter";
-import { useEffectAfterMount } from "../../../../lib/hooks/useEffectAfterMount";
-import { useFetch } from "../../../../lib/hooks/useFetch";
-import { useListFilterOptions } from "../../../../shared/list/hooks/filters/useFilterOptions";
-import lookupUtils from "../../../../lib/lookups/utils";
 import StateValidator from "../../../../shared/validation/components/StateValidator";
 import { useFormScopedId } from "../../../../shared/form/hooks/useFormScopedId";
 import ValidatorFunctions from "../../../../shared/validation/utils/validatorFunctions";
 import { ValidatorContextProvider } from "../../../../contexts/validatorContext";
 import { ValidateOnChangeBehaviour } from "../../../../shared/validation/hooks/useValidator";
+import FormWithValidator from "../../../../shared/validation/components/FormWithValidation";
+import styles from "../../../../shared/layout/css/layout.module.css";
+import { MdSave } from "react-icons/md";
+import FormBackAction from "../../../../shared/form/components/FormBackAction";
+import FormActionButton from "../../../../shared/form/components/FormActionButton";
+
 
 const CreateBook = () => {
+  const { getFieldId, getFieldName, scopeName } = useFormScopedId("addBoook");
 
-    const {getFieldId, getFieldName, scopeName} = useFormScopedId("addBoook")
-    
-    const create = useCreateBook();
-    const [authorValue, setAuthorValue]= useState<IAutoCompleteOption[]>([]);
-    const autoCompleteLenderQueryEndpoint = apiGetEndpoint("Author/Filter");
-    const fetchLookups = useFetch<LookupValues[]>(apiGetEndpoint("Lookups"), {types : [LookupType.Genre]})
+  const create = useCreateBook();
 
-
-const genreFilter = useListFilterOptions<string>();
-
-    useEffectAfterMount(()=> {
-
-        genreFilter.setFilterOptions(lookupUtils.getValuesForTypeAsFilterOptions(fetchLookups.data ?? [], LookupType.Genre), false)
-
-    }, [fetchLookups.data])
-
-    const getAutoCompleteFetchParams = (query : string) => {
-
-        return {filter : query, activeFilter : [1], maxItems: 10}
-    }
-
-    const autoCompleteMapToOptions = (enpointData : AuthorItemResult[]) : IAutoCompleteOption[] => {
-
-        return enpointData.map(d => {return {value : d.id, label : d.name, rawValue: d}})
-    }
-
-    const handleAuthorChange = (newValue : IAutoCompleteOption[]) => {
-        setAuthorValue(newValue)
-    }
-     const handleGenreChange = (newValue : string[]) => {
-        genreFilter.setSelectedValues([...newValue])
-    }
-return (
+  return (
     <>
-    <ValidatorContextProvider changeBehaviour={ValidateOnChangeBehaviour.OnlyAfterFirstValidate}>
-    <Stack direction="row" spacing={3}>
-        <StateValidator fieldName="genre-valiadtor" category={scopeName} validators={[ValidatorFunctions.notEmpty()]} state={genreFilter.selectedValue} >
-        <Box flex={1}>
-            <MultiFilter
-                label="Genres"
-                tooltip="Filter by genre"
-                filterOptions={genreFilter.filterOptions}
-                selectedValues={genreFilter.selectedValues}
-                onSelectedValuesChange={handleGenreChange}
-                disabled={fetchLookups.isPending}
-            />
-        </Box>
-        </StateValidator> 
+      <ValidatorContextProvider
+        changeBehaviour={ValidateOnChangeBehaviour.OnlyAfterFirstValidate}
+      >
+        <FormWithValidator
+          onSubmit={create.submitAction.submit}
+          showMessageOnInvalid={true}
+        >
+          <Stack direction="row" spacing={3}>
+            <StateValidator
+              fieldName="genre-valiadtor"
+              category={scopeName}
+              validators={[ValidatorFunctions.notEmpty()]}
+              state={create.genreFilter.selectedValue}
+            >
+              <Box flex={1}>
+                <MultiFilter
+                  label="Genres"
+                  tooltip="Filter by genre"
+                  filterOptions={create.genreFilter.filterOptions}
+                  selectedValues={create.genreFilter.selectedValues}
+                  onSelectedValuesChange={create.handleGenreChange}
+                  disabled={create.fetchLookups.isPending}
+                />
+              </Box>
+            </StateValidator>
 
-        <Box flex={1}>
-            <Typography sx={{ mb: 1 }}>
-                Author
-            </Typography>
+            <Box flex={1}>
+              <Typography sx={{ mb: 1 }}>Author</Typography>
 
-            <ApiMultiSelectInput
+              <ApiMultiSelectInput
                 maxWidth="12rem"
-                value={authorValue}
-                onChange={handleAuthorChange}
+                value={create.authorValue}
+                onChange={create.handleAuthorChange}
                 autoCompleteOptions={{
-                    placeholder: "Search for an author...",
-                    queryEndpoint: autoCompleteLenderQueryEndpoint,
-                    getFetchParams: getAutoCompleteFetchParams,
-                    mapToOptions: autoCompleteMapToOptions,
-                    noOptionsText: "No author found",
-                    renderOption: (props, option) => (
-                        <li {...props} key={option.value}>
-                            <ListItemText
-                                primary={option.label}
-                                secondary={option.rawValue?.name}
-                            />
-                        </li>
-                    ),
+                  placeholder: "Search for an author...",
+                  queryEndpoint: create.autoCompleteLenderQueryEndpoint,
+                  getFetchParams: create.getAutoCompleteFetchParams,
+                  mapToOptions: create.autoCompleteMapToOptions,
+                  noOptionsText: "No author found",
+                  renderOption: (props, option) => (
+                    <li {...props} key={option.value}>
+                      <ListItemText
+                        primary={option.label}
+                        secondary={option.rawValue?.name}
+                      />
+                    </li>
+                  ),
                 }}
                 renderSelectedItem={(labelId, option) => (
-                    <ListItemText
-                        id={labelId}
-                        primary={option.label}
-                        secondary={option.rawValue?.description}
-                    />
+                  <ListItemText
+                    id={labelId}
+                    primary={option.label}
+                    secondary={option.rawValue?.description}
+                  />
                 )}
-            />
-        </Box>
-    </Stack>
-    </ValidatorContextProvider>
-        </>
+              />
+            </Box>
 
-);
-}
+            <Grid
+              container
+              columns={1}
+              columnSpacing={2}
+              rowSpacing={1}
+              className={
+                styles.detail_container + " " + styles.sidebar_buttons_holder
+              }
+            >
+              <Grid>
+                <FormBackAction />
+              </Grid>
+
+              <Grid>
+                <FormActionButton
+                  label="Submit"
+                  isSubmit={true}
+                  icon={<MdSave fontSize="large"></MdSave>}
+                />
+              </Grid>
+            </Grid>
+          </Stack>
+        </FormWithValidator>
+      </ValidatorContextProvider>
+    </>
+  );
+};
 
 export default CreateBook;

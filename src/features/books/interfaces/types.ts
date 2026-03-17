@@ -15,3 +15,7 @@ export type AuthorItemResult = {
     name : string,
     description : string
 }
+
+export type ICreateBookRequest = {
+    
+}

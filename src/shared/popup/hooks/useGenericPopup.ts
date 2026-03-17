@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 export const useGenericPopup = () => {
-    const [open, isOpen] = useState(false);
+    const [open, setOpen] = useState(false);
     const [state, setState] = useState<any | null>(null)
 
     return{
-        open, isOpen,
+        open, setOpen,
         state, setState
     }
 }

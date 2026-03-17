@@ -1,0 +1,46 @@
+.form_action_inner {
+    align-items: center;
+    gap: 1rem;
+}
+
+.form_action_label {
+    word-wrap: normal;
+    width: 100%;
+    display: block;
+}
+
+.form_action_sub_label {
+    word-wrap: normal;
+    width: 100%;
+    display: block;
+    font-size: 12px !important;
+    text-transform: none !important;
+}
+
+.form_action_icon {
+    line-height: 1;
+}
+
+.relative_date > * {
+    vertical-align: middle;
+}
+
+.relative_date_icon {
+    margin-right: 0.25rem;
+}
+
+.relative_date_future {
+    color: rgb(34 197 94);
+}
+
+.relative_date_past {
+    color: rgb(239 68 68);
+}
+
+.relative_date_none {
+    color: rgb(54, 49, 49);
+}
+
+.error_details_list {
+    list-style: none;
+}
