@@ -15,6 +15,8 @@ export const useCreateBook = () => {
     const autoCompleteLenderQueryEndpoint = apiGetEndpoint("Author/Filter");
     const fetchLookups = useFetch<LookupValues[]>(apiGetEndpoint("Lookups"), {types : [LookupType.Genre]})
     const genreFilter = useListFilterOptions<string>();
+    const [fiction, setFiction] = useState<boolean>(false);
+    const [name, setName] = useState<string>("");
 
     useEffectAfterMount(()=> {
 
@@ -37,14 +39,18 @@ export const useCreateBook = () => {
     }
      const handleGenreChange = (newValue : string[]) => {
         genreFilter.setSelectedValues([...newValue])
+        console.log(newValue)
     }
 
     const submitAction = useSubmitFormAction(
-        apiGetEndpoint("Book"), 
+        apiGetEndpoint("/Book"), 
         FormSubmitAction.Create,
         () => {
             const requestData : ICreateBookRequest = {
-
+                    genres : genreFilter.selectedValues,
+                    authors : [...authorValue.map(value => value.value)],
+                    fiction : fiction,
+                    name : name,
             }
 
             return requestData
@@ -61,6 +67,8 @@ export const useCreateBook = () => {
         autoCompleteMapToOptions,
         handleAuthorChange,
         handleGenreChange,
+        fiction, setFiction,
+        name, setName,
         submitAction
     }
 

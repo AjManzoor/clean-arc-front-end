@@ -17,5 +17,10 @@ export type AuthorItemResult = {
 }
 
 export type ICreateBookRequest = {
+
+    genres : string[];
+    name : string,
+    fiction : boolean;
+    authors : string[];
     
 }

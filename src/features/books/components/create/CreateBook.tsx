@@ -1,4 +1,12 @@
-import { Grid, ListItemText, Stack, Typography } from "@mui/material";
+import {
+  Checkbox,
+  FormControlLabel,
+  Grid,
+  ListItemText,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import ApiMultiSelectInput from "../../../../shared/form/components/ApiMultiSelectInput";
 import { useCreateBook } from "../../hooks/create/useCreateBook";
@@ -14,7 +22,6 @@ import { MdSave } from "react-icons/md";
 import FormBackAction from "../../../../shared/form/components/FormBackAction";
 import FormActionButton from "../../../../shared/form/components/FormActionButton";
 
-
 const CreateBook = () => {
   const { getFieldId, getFieldName, scopeName } = useFormScopedId("addBoook");
 
@@ -25,11 +32,39 @@ const CreateBook = () => {
       <ValidatorContextProvider
         changeBehaviour={ValidateOnChangeBehaviour.OnlyAfterFirstValidate}
       >
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={create.fiction}
+              onChange={(e) => create.setFiction(e.target.checked)}
+            />
+          }
+          label="Fiction"
+        />
         <FormWithValidator
           onSubmit={create.submitAction.submit}
           showMessageOnInvalid={true}
         >
           <Stack direction="row" spacing={3}>
+            <StateValidator
+              fieldName=""
+              category={scopeName}
+              validators={[ValidatorFunctions.notEmpty()]}
+              state={create.name}
+            >
+              <FormControlLabel
+                control={
+                  <TextField
+                    label="Enter Book Name"
+                    variant="outlined"
+                    onChange={(e) => create.setName(e.target.value)}
+                    fullWidth
+                  />
+                }
+                label="Name"
+              />
+            </StateValidator>
+
             <StateValidator
               fieldName="genre-valiadtor"
               category={scopeName}
@@ -49,6 +84,12 @@ const CreateBook = () => {
             </StateValidator>
 
             <Box flex={1}>
+              <StateValidator
+              fieldName=""
+              category={scopeName}
+              validators={[ValidatorFunctions.notEmpty()]}
+              state={create.authorValue}
+              >
               <Typography sx={{ mb: 1 }}>Author</Typography>
 
               <ApiMultiSelectInput
@@ -78,6 +119,7 @@ const CreateBook = () => {
                   />
                 )}
               />
+              </StateValidator>
             </Box>
 
             <Grid
